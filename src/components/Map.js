@@ -3,7 +3,6 @@ import "../styles/Map.css";
 import { showDataMap } from "../util";
 
 const Map = ({ countries, casesType, center, zoom }) => {
-  console.log(countries);
   return (
     <div className="map">
       <LeafletMap center={center} zoom={zoom}>
