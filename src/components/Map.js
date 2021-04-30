@@ -1,7 +1,18 @@
-const Map = () => {
+import { Map as LeafletMap, TileLayer } from "react-leaflet";
+import "../styles/Map.css";
+import { showDataMap } from "../util";
+
+const Map = ({ countries, casesType, center, zoom }) => {
+  console.log(countries);
   return (
     <div className="map">
-      <h1>I am a map</h1>
+      <LeafletMap center={center} zoom={zoom}>
+        <TileLayer
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+        />
+        {countries.length > 0 && showDataMap(countries, casesType)}
+      </LeafletMap>
     </div>
   );
 };
